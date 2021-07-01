@@ -347,4 +347,4 @@ if __name__ == '__main__':
 
             tree = parser.parse(lexer.tokenize(text)) 
 
-            BasicExecute(tree, env)
+            DBLExecute(tree, env)
