@@ -1,7 +1,7 @@
 from sly import Lexer, Parser
 import discord
 from discord.ext import commands
-class BasicLexer(Lexer): 
+class DBLLexer(Lexer): 
 
     tokens = { NAME, NUMBER, STRING , PRINT,TOKEN,PREFIX,CMD} 
 
@@ -68,11 +68,11 @@ class BasicLexer(Lexer):
 
 
 
-class BasicParser(Parser): 
+class DBLParser(Parser): 
 
     #tokens are passed from lexer to parser 
 
-    tokens = BasicLexer.tokens 
+    tokens = DBLLexer.tokens 
 
   
 
@@ -202,7 +202,7 @@ class BasicParser(Parser):
         return ('num', p.NUMBER)
 
 
-class BasicExecute: 
+class DBLExecute: 
 
     
 
@@ -269,8 +269,8 @@ class BasicExecute:
         if node[0] == 'token':
             Bot_var = self.env['Bot_var']
             Bot_var.run(node[1].replace('"',''))
-            print('Server running')
-            return node[1]
+            #print('Server running')
+            #return node[1]
         if node[0] == 'str': 
 
             return node[1] 
@@ -317,9 +317,9 @@ class BasicExecute:
 
 if __name__ == '__main__': 
 
-    lexer = BasicLexer() 
+    lexer = DBLLexer() 
 
-    parser = BasicParser() 
+    parser = DBLParser() 
 
     print('Discord Bot Language') 
 
